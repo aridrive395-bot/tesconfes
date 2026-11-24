@@ -1,0 +1,52 @@
+:root{--rose:#ff8fab;--ink:#fff3f6;--gelap:#5a1f45}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{overflow:hidden;font:300 17px/1.7 Outfit,sans-serif;color:var(--ink);background:#1d1230;transition:color 3s;-webkit-tap-highlight-color:transparent}
+body.pagi{color:var(--gelap)}
+#langit,canvas{position:fixed;inset:0;width:100%;height:100%}
+#langit div{position:absolute;inset:0}
+.malam{background:radial-gradient(120% 80% at 50% 115%,#a34576 0,#4a2158 45%,#1d1230 100%)}
+.siang{background:linear-gradient(#ffe4da 0,#ffc4d4 50%,#ffe9d2 100%);opacity:0;transition:opacity 4s}
+body.pagi .siang{opacity:1}
+#taman{z-index:1}#fx{z-index:2;pointer-events:none}
+
+.layar{position:fixed;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .9s,visibility .9s}
+.layar.aktif{opacity:1;visibility:visible}
+h1,h2,.kalimat{font-family:'Bodoni Moda',serif;font-style:italic;font-weight:400;line-height:1.2}
+h1{font-size:clamp(48px,13vw,110px);text-shadow:0 0 40px #ff8fab88}
+h2{font-size:clamp(30px,7vw,60px);max-width:14em}
+.kecil{font-size:12px;letter-spacing:.35em;text-transform:uppercase;opacity:.8;margin:6px 0 10px}
+.kuncup{width:84px;margin-bottom:10px;filter:drop-shadow(0 0 18px #ff8fabaa);animation:goyang 5s ease-in-out infinite;transform-origin:bottom}
+.tulip{animation:mekar 3s ease-in-out infinite alternate;transform-origin:40px 56px}
+@keyframes goyang{50%{transform:rotate(4deg)}}
+@keyframes mekar{to{transform:scale(1.08)}}
+
+.tombol{font:400 16px Outfit,sans-serif;color:inherit;padding:14px 32px;margin-top:30px;border-radius:99px;border:1px solid #fff8;background:#ffffff1f;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);cursor:pointer;transition:transform .35s,box-shadow .35s,background .3s}
+.tombol:hover{box-shadow:0 0 32px #ff8fabaa;background:#ffffff33}
+body.pagi .tombol{border-color:#5a1f4566}
+.tombol.ya{background:linear-gradient(135deg,#ff7aa2,#ff9e6d);border:0;color:#fff;box-shadow:0 8px 28px #ff5d8f66}
+.pilihan{display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap}
+
+.kalimat{font-size:clamp(26px,6vw,46px);max-width:16em;min-height:3.6em;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0 .3em;transition:opacity .4s}
+.kalimat.keluar{opacity:0}
+.w{display:inline-block;opacity:0;transform:translateY(12px);filter:blur(8px);animation:kata .9s forwards}
+@keyframes kata{to{opacity:1;transform:none;filter:none}}
+.isyarat{position:absolute;bottom:7vh;font-size:12px;letter-spacing:.3em;text-transform:uppercase;opacity:0;transition:opacity 1s}
+.isyarat.tampil{opacity:.7;animation:denyut 2s infinite}
+@keyframes denyut{50%{opacity:.25}}
+.titik{position:absolute;bottom:4vh;display:flex;gap:8px}
+.titik i{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.25;transition:.4s}
+.titik i.on{opacity:1;transform:scale(1.4)}
+
+#akhir{justify-content:flex-start;padding-top:9vh;pointer-events:none}
+.penutup{opacity:0;transform:translateY(20px);transition:opacity 2s,transform 2s;max-width:30em}
+#akhir.muncul .penutup{opacity:1;transform:none}
+#akhir h2{margin:0 auto 14px;text-shadow:0 2px 20px #fff9}
+#kata{font-size:clamp(15px,3.6vw,19px);text-shadow:0 1px 14px #fffa}
+.ttd{font:400 clamp(30px,7vw,46px) 'Pinyon Script',cursive;color:#d6336c;margin-top:8px}
+#musik{position:fixed;top:14px;right:14px;z-index:10;width:42px;height:42px;border-radius:50%;border:1px solid #fff7;background:#ffffff26;backdrop-filter:blur(8px);color:inherit;font-size:18px;cursor:pointer}
+#musik[hidden]{display:none}
+#musik.main{animation:putar 4s linear infinite}
+@keyframes putar{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.kuncup,.tulip,.isyarat{animation:none!important}}
+#tap{color:#fff;text-shadow:0 1px 8px #0008}
